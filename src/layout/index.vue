@@ -23,21 +23,23 @@
 <script setup lang="ts">
 import logoBar from "./components/logoBar/index.vue";
 import menuBar from "./components/menuBar/index.vue";
-import { Expand, Fold } from "@element-plus/icons-vue";
 import { ref, computed } from 'vue';
 import { isMobile } from '../utils/isMobile'
+
 
 const collapsed = ref<boolean>(false)
 
 const autoWidth = computed(() => {
 
-    if (collapsed.value) {
-        return '64px'
+    if (collapsed.value && isMobile()) {
+        return '0px'
+    } else if (collapsed.value) {
+        return '68px'
     } else {
         return '200px'
     }
 
-    // return ! ? '64px': '200px'
+    // return ! ? '68px': '200px'
 
 })
 
