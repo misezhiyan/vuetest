@@ -1,6 +1,6 @@
 <template>
   <el-menu default-active="1" active-text-color="#409EFF" text-color="#FFF" class="el-menu" :collapse="collapsed">
-    <menuItem :menus="menus"/>
+    <menuItem :menus="menus" />
   </el-menu>
 </template>
   
@@ -16,70 +16,54 @@ defineProps({
 
 const menus = reactive(
   [{
-    "path": "/",
-    "redirect": "/index",
-    "name": "Index",
-    "meta": {
+    path: "/",
+    redirect: "/index",
+    name: "Index",
+    meta: {
       title: '首页',
       icon: 'house'
     },
-    "children": [{
-      "path": "/index",
-      "name": "Index",
-      "meta": {
+    children: [{
+      path: "index",
+      name: "Index",
+      meta: {
         title: '首页',
         icon: 'house'
       },
     }]
   }, {
-    "path": "/user",
-    "redirect": "/user",
-    "name": "User",
-    "meta": {
+    path: "/user",
+    redirect: '/user/student',
+    name: "User",
+    meta: {
       title: '用户管理',
       affix: true,
       icon: 'UserFilled'
     },
-    "children": [{
-      "path": "/manager",
-      "name": "UserManager",
-      "meta": {
-        title: '用户管理',
-        icon: 'UserFilled'
-      },
-    }]
-  }, {
-    "path": "/db",
-    "redirect": "/db",
-    "name": "Db",
-    "meta": {
-      title: '数据库',
-      affix: true,
-      icon: 'UserFilled'
-    },
-    "children": [{
-      "path": "/index",
-      "name": "DbIndex",
-      "meta": {
-        title: '数据库列表',
+    children: [{
+      path: "student",
+      name: "Student",
+      meta: {
+        title: '生源信息',
         icon: 'UserFilled'
       },
     }, {
-      "path": "/dbConfig",
-      "name": "DbIndex",
-      "meta": {
-        title: '数据库配置',
+      path: "teacher",
+      name: "Teacher",
+      meta: {
+        title: '师资信息',
         icon: 'UserFilled'
       },
     }]
-  }])
+  },
+  ])
 
 </script>
   
 <style lang="scss">
 .el-menu {
   width: 200px;
-  min-height: 400px;
+  min-height: 300px;
   height: 100vh;
   background-color: $menuBg;
   overflow: hidden;
