@@ -55,7 +55,38 @@ const menus = reactive(
         icon: 'UserFilled'
       },
     }]
-  },
+  }, {
+    path: '/system',
+    // redirect: '/user/student',
+    name: 'System',
+    meta: {
+      title: '系统管理',
+      affix: true,
+      icon: 'UserFilled'
+    },
+    children: [{
+      path: "menu",
+      name: "Menu",
+      meta: {
+        title: '菜单管理',
+        icon: 'UserFilled'
+      }
+    }, {
+      path: "auth",
+      name: "Auth",
+      meta: {
+        title: '权限管理',
+        icon: 'UserFilled'
+      }
+    }, {
+      path: "role",
+      name: "Role",
+      meta: {
+        title: '角色管理',
+        icon: 'UserFilled'
+      }
+    }],
+  }
   ])
 
 </script>
@@ -63,11 +94,16 @@ const menus = reactive(
 <style lang="scss">
 .el-menu {
   width: 200px;
-  min-height: 300px;
-  height: 100vh;
+  // min-height: 300px;
+  // height: 100vh;
   background-color: $menuBg;
   overflow: hidden;
   border: none;
+
+  .el-sub-menu {
+    .el-menu-item {
+      background-color: $subMenuBg;
+    }
+  }
 }
 </style>
-  

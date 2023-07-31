@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [{
     component: layout,
     meta: {
         title: '首页',
-        affix:true,
+        affix: true,
         icon: 'house'
     },
     children: [{
@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [{
     component: layout,
     meta: {
         title: '用户管理',
-        affix:true,
+        affix: true,
         icon: 'house'
     },
     children: [{
@@ -47,10 +47,43 @@ const routes: Array<RouteRecordRaw> = [{
         name: "Teacher",
         component: () => import('../views/user/teacher/index.vue'),
         meta: {
-            meta: {
-                title: '师资信息',
-                icon: 'UserFilled'
-            },
+            title: '师资信息',
+            icon: 'UserFilled'
+        }
+    }],
+}, {
+    path: '/system',
+    // redirect: '/user/student',
+    name: 'System',
+    component: layout,
+    meta: {
+        title: '系统管理',
+        affix: true,
+        icon: 'house'
+    },
+    children: [{
+        path: "menu",
+        name: "Menu",
+        component: () => import('../views/system/menu/index.vue'),
+        meta: {
+            title: '菜单管理',
+            icon: 'UserFilled'
+        },
+    }, {
+        path: "role",
+        name: "Role",
+        component: () => import('../views/system/role/index.vue'),
+        meta: {
+            title: '角色管理',
+            icon: 'UserFilled'
+        }
+    }, {
+        path: "auth",
+        name: "Auth",
+        component: () => import('../views/system/auth/index.vue'),
+        meta: {
+            title: '角色管理',
+            icon: 'UserFilled'
         }
     }],
 },

@@ -20,7 +20,6 @@
     </template>
 </template>
 
-
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 defineProps(['menus'])
@@ -29,4 +28,3 @@ const toPath = (item: string) => {
     router.push({ name: item })
 }
 </script>
-

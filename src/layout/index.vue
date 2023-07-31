@@ -9,9 +9,10 @@
                 <el-header>
                     <el-row>
                         <!-- 菜单展开、折叠 -->
-                        <el-icon style="font-size: 35px;" @click="() => (collapsed = !collapsed)">
+                        <el-icon style="font-size: 35px; margin-right: 15px;" @click="() => (collapsed = !collapsed)">
                             <component :is="collapsed ? Expand: Fold" />
                         </el-icon>
+                        <headerBar style="margin-top: 10px;"/>
                     </el-row>
                 </el-header>
                 <el-main>
@@ -29,6 +30,7 @@ import { ref, computed } from 'vue';
 import { Expand, Fold } from '@element-plus/icons-vue'
 import { isMobile } from '../utils/isMobile'
 import appMain from './components/appMain/index.vue'
+import headerBar from './components/headerBar/index.vue'
 
 const collapsed = ref<boolean>(false)
 
