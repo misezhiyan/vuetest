@@ -82,7 +82,7 @@ const routes: Array<RouteRecordRaw> = [{
         name: "Auth",
         component: () => import('../views/system/auth/index.vue'),
         meta: {
-            title: '角色管理',
+            title: '权限管理',
             icon: 'UserFilled'
         }
     }],

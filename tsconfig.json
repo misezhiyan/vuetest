@@ -22,7 +22,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "@":["./src"],
+      "@/*":["./src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",

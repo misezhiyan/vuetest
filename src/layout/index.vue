@@ -16,6 +16,7 @@
                     </el-row>
                 </el-header>
                 <el-main>
+                    <tabBar/>
                     <appMain />
                 </el-main>
             </el-container>
@@ -31,6 +32,7 @@ import { Expand, Fold } from '@element-plus/icons-vue'
 import { isMobile } from '../utils/isMobile'
 import appMain from './components/appMain/index.vue'
 import headerBar from './components/headerBar/index.vue'
+import tabBar from './components/tabBar/index.vue'
 
 const collapsed = ref<boolean>(false)
 
@@ -69,11 +71,11 @@ const autoWidth = computed(() => {
         overflow: hidden;
     }
 
-    .el-main {
-        background-color: #E9EEF3;
-        color: #333;
-        text-align: center;
-        line-height: 160px;
-    }
+    // .el-main {
+    //     background-color: #E9EEF3;
+    //     color: #333;
+    //     text-align: center;
+    //     line-height: 160px;
+    // }
 }
 </style>
