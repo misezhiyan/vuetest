@@ -83,6 +83,13 @@ const refresh = () => {
     tabItem.forEach((tab: Itab) => {
       store.commit('addTab', tab)
     })
+  } else {
+    store.commit('addTab', {
+      path: '/index',
+      title: '首页'
+    })
+    activeTab = '/index'
+    router.push({ path: '/index' })
   }
 
   activeKey.value = activeTab
