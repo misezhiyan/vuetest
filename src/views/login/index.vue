@@ -28,6 +28,7 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import type { FormInstance, FormRules } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
+import { teacherList } from '@/axios/daydayupApi'
 
 const loginFormRef = ref<FormInstance>()
 const router = useRouter();
@@ -64,7 +65,6 @@ const submitForm = (formRef: FormInstance | undefined) => {
     if (!formRef) return
     formRef.validate((valid) => {
         if (valid) {
-            console.log('submit!')
             userLogin()
         } else {
             console.log('error submit!')
@@ -76,9 +76,14 @@ const submitForm = (formRef: FormInstance | undefined) => {
 // 后台登录
 const userLogin = (() => {
 
-    router.push({
-        path: '/index'
+    teacherList(loginForm).then((res) => {
+        console.log(res)
     })
+
+
+    // router.push({
+    //     path: '/index'
+    // })
 })
 </script>
 

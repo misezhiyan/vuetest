@@ -8,16 +8,23 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
     server: {
-        port: 8072
+        port: 8072,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:36501/gateway/daydayup',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, "")
+            }
+        }
     },
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "src")
         }
     },
-    css:{
-        preprocessorOptions:{
-            scss:{
+    css: {
+        preprocessorOptions: {
+            scss: {
                 additionalData: `@import "./src/styles/variables.scss";`,
             }
         }
@@ -31,4 +38,5 @@ export default defineConfig({
             resolvers: [ElementPlusResolver()],
         }),
     ],
+
 })
