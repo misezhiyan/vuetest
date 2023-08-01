@@ -80,9 +80,18 @@ const refresh = () => {
 
   if (session) {
     let tabItem = JSON.parse(session)
-    tabItem.forEach((tab: Itab) => {
-      store.commit('addTab', tab)
-    })
+    if (tabItem.length > 0) {
+      tabItem.forEach((tab: Itab) => {
+        store.commit('addTab', tab)
+      })
+    } else {
+      store.commit('addTab', {
+        path: '/index',
+        title: '首页'
+      })
+      activeTab = '/index'
+      router.push({ path: '/index' })
+    }
   } else {
     store.commit('addTab', {
       path: '/index',

@@ -40,24 +40,13 @@ export const store = createStore<State>({
             if (direction == 'other') {
                 state.tabList = state.tabList.filter((item) => item.path == state.contextMenuTabId || item.path == '/index')
             } else if (direction == 'left') {
-                const index = state.tabList.findIndex((item) => item.path == state.contextMenuTabId)
                 const homePage = state.tabList.filter((item) => item.path == '/index')[0];
-                const leftList = state.tabList.splice(index)
+                const homeArray = [homePage]
+                const notHomeList = state.tabList.filter((item) => item.path != '/index')
+                const index = notHomeList.findIndex((item) => item.path == state.contextMenuTabId)
+                const rightList = notHomeList.splice(index)
 
-                const homePageIndex = leftList.findIndex((item) => item.path == homePage.path);
-
-
-                
-                console.log(leftList)
-                console.log(homePage)
-                console.log(homePageIndex)
-
-
-                if (homePageIndex > 0) {
-                    state.tabList = leftList
-                } else {
-                    state.tabList = state.tabList.filter((item) => item.path == '/index').concat(state.tabList.splice(index -1))
-                }
+                state.tabList = homeArray.concat(rightList)
             } else if (direction == 'right') {
                 const index = state.tabList.findIndex((item) => item.path == state.contextMenuTabId)
                 state.tabList = state.tabList.splice(0, index + 1)
